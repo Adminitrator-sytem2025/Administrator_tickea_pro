@@ -8,19 +8,19 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f0f2f5; color: #333; }
         
-        /* Màn hình thông báo lỗi IP/WiFi không hợp lệ */
+        /* Màn hình từ chối truy cập */
         .ip-denied-overlay {
-            position: fixed; inset: 0; background: #1e293b; color: #fff;
+            position: fixed; inset: 0; background: #0f172a; color: #fff;
             display: none; flex-direction: column; align-items: center; justify-content: center;
             z-index: 99999; text-align: center; padding: 20px;
         }
         .ip-denied-box {
-            background: #0f172a; border: 2px solid #ef4444; padding: 40px;
+            background: #1e293b; border: 2px solid #ef4444; padding: 35px;
             border-radius: 12px; max-width: 520px; width: 100%; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
         }
-        .ip-denied-box h1 { color: #ef4444; margin-bottom: 15px; font-size: 24px; }
-        .ip-denied-box p { color: #cbd5e1; font-size: 15px; margin-bottom: 10px; line-height: 1.5; }
-        .user-ip-tag { background: #334155; color: #38bdf8; padding: 4px 10px; border-radius: 4px; font-family: monospace; font-weight: bold; }
+        .ip-denied-box h1 { color: #ef4444; margin-bottom: 15px; font-size: 22px; }
+        .ip-denied-box p { color: #cbd5e1; font-size: 14px; margin-bottom: 10px; line-height: 1.5; }
+        .user-ip-tag { background: #334155; color: #38bdf8; padding: 4px 8px; border-radius: 4px; font-family: monospace; font-weight: bold; }
 
         /* Màn hình đăng nhập */
         .login-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; z-index: 9999; }
@@ -34,29 +34,27 @@
         .tab-btn { padding: 12px 20px; border: none; background: #e4e6eb; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s; }
         .tab-btn.active { background: #1877f2; color: #fff; }
         
-        /* Card & Controls */
+        /* Card & Form */
         .card { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
         .form-control { width: 100%; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; outline: none; }
         .form-control:focus { border-color: #1877f2; }
         .btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; }
-        .btn-sm { padding: 5px 10px; font-size: 12px; }
         .btn-primary { background: #1877f2; color: #fff; }
         .btn-success { background: #22c55e; color: #fff; }
         .btn-warning { background: #f59e0b; color: #fff; }
         .btn-danger { background: #ef4444; color: #fff; }
         .btn-purple { background: #8b5cf6; color: #fff; }
         
-        /* Nhãn Dấu "IN LẠI" */
+        /* Nhãn IN LẠI */
         .reprint-stamp {
             position: absolute; top: 12px; right: 15px; border: 2px solid #ef4444; color: #ef4444;
             padding: 3px 10px; font-weight: bold; font-size: 14px; text-transform: uppercase;
-            border-radius: 4px; letter-spacing: 1.5px; background: #ffffff; z-index: 99;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: none;
+            border-radius: 4px; letter-spacing: 1.5px; background: #ffffff; z-index: 99; display: none;
         }
 
-        /* Mẫu Vé Chuẩn */
+        /* Mẫu Vé */
         .ticket-wrapper { display: flex; justify-content: center; margin-top: 15px; position: relative; }
         .ticket-box {
             width: 780px; height: 260px; background-color: #dfc194; color: #222;
@@ -95,11 +93,9 @@
             writing-mode: vertical-rl; font-weight: bold; font-size: 20px; letter-spacing: 6px;
         }
 
-        /* Modal Sửa */
+        /* Modals & Audit Print */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 8888; }
         .modal-card { background: #fff; width: 450px; padding: 25px; border-radius: 10px; }
-
-        /* Mẫu in biên bản */
         .audit-print { display: none; background: #fff; padding: 30px; font-family: 'Times New Roman', Times, serif; position: relative; }
         .audit-title { text-align: center; font-size: 22px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
         .audit-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
@@ -107,46 +103,34 @@
         .audit-sig { display: flex; justify-content: space-between; margin-top: 50px; text-align: center; }
         .audit-sig div { width: 45%; }
 
-        /* Khung thông tin */
         .info-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-top: 15px; display: none; }
         .info-row { display: flex; border-bottom: 1px solid #e2e8f0; padding: 10px 0; }
         .info-label { width: 180px; font-weight: bold; color: #64748b; }
         .info-value { flex: 1; color: #0f172a; font-weight: 600; }
 
-        /* Bảng lịch sử */
-        .history-section { margin-top: 25px; }
-        .history-title { font-size: 15px; font-weight: bold; color: #334155; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .history-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 13px; border-radius: 6px; overflow: hidden; border: 1px solid #cbd5e1; }
-        .history-table th { background: #f1f5f9; text-align: left; padding: 10px; color: #475569; font-weight: 600; border-bottom: 1px solid #cbd5e1; }
-        .history-table td { padding: 10px; border-bottom: 1px solid #e2e8f0; color: #334155; }
-        .no-history { color: #94a3b8; font-style: italic; padding: 10px; font-size: 13px; background: #fff; border: 1px dashed #cbd5e1; border-radius: 6px; text-align: center; }
-
         @media print {
             body * { visibility: hidden; }
             .printable, .printable * { visibility: visible; }
             .printable { position: absolute; left: 0; top: 0; width: 100%; }
-            .ticket-box::before, .ticket-box::after { background-color: #fff !important; -webkit-print-color-adjust: exact; }
-            .ticket-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .reprint-stamp { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .ticket-box, .reprint-stamp { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Màn hình từ chối truy cập do sai IP hoặc sai WiFi -->
+    <!-- Màn hình báo lỗi mạng -->
     <div id="ipDeniedOverlay" class="ip-denied-overlay">
         <div class="ip-denied-box">
-            <h1>🚫 TRUY CẬP BỊ TỪ CHỐI</h1>
-            <p id="deniedReasonMessage">Địa chỉ IP hoặc kết nối WiFi của bạn không hợp lệ.</p>
-            <div style="text-align: left; margin: 20px 0; background: #1e293b; padding: 15px; border-radius: 8px;">
-                <p style="margin-bottom: 8px;">📶 WiFi IP (LAN): <span id="currentLocalIP" class="user-ip-tag">Đang kiểm tra...</span></p>
-                <p>🌐 Public IP (WAN): <span id="currentPublicIP" class="user-ip-tag">Đang kiểm tra...</span></p>
+            <h1>🚫 TỪ CHỐI TRUY CẬP</h1>
+            <p id="deniedReasonMessage">Đang kiểm tra kết nối mạng Gateway 192.168.0.1...</p>
+            <div style="text-align: left; margin: 20px 0; background: #0f172a; padding: 15px; border-radius: 8px;">
+                <p style="margin-bottom: 8px;">📶 Trạng thái Mạng: <span id="gatewayStatusTag" class="user-ip-tag">Đang kiểm tra...</span></p>
             </div>
-            <p style="font-size: 13px; color: #64748b;">Vui lòng kết nối đúng mạng WiFi nội bộ được cấp quyền để truy cập.</p>
+            <p style="font-size: 12px; color: #94a3b8;">Yêu cầu: Thiết bị phải kết nối chung mạng Gateway 192.168.0.1</p>
         </div>
     </div>
 
-    <!-- Đăng nhập Admin -->
+    <!-- Màn hình đăng nhập -->
     <div id="loginOverlay" class="login-overlay" style="display: none;">
         <div class="login-card">
             <h2>ĐĂNG NHẬP ADMIN</h2>
@@ -162,7 +146,7 @@
         </div>
     </div>
 
-    <!-- Màn hình chính -->
+    <!-- Màn hình ứng dụng chính -->
     <div class="app-container" id="appMain" style="display: none;">
         <div class="header-bar">
             <h2>HỆ THỐNG QUẢN LÝ VÉ</h2>
@@ -198,16 +182,13 @@
             </div>
             <button class="btn btn-success" onclick="processSellTicket()">Tạo Mã & In Vé</button>
 
-            <!-- Khung In Vé Tab 1 -->
             <div id="ticketPrintArea" class="ticket-wrapper">
                 <div class="ticket-box">
                     <div class="t-stub-left">
                         <span class="ticket-code-display">00000</span> &nbsp; MỘT NGƯỜI
                     </div>
                     <div class="t-main">
-                        <div class="t-main-top">
-                            MỘT ĐÊM<br>ĐÁNG NHỚ
-                        </div>
+                        <div class="t-main-top">MỘT ĐÊM<br>ĐÁNG NHỚ</div>
                         <div class="t-main-bottom">
                             <div class="t-mb-left">Diện váy, khiêu vũ,<br>hẹn hò và choáng ngợp</div>
                             <div class="t-mb-right">7 Tháng 3, 2020, 18:00<br>Khách sạn Á Đông</div>
@@ -225,13 +206,13 @@
             </div>
         </div>
 
-        <!-- Tab 2: Sửa Thông Tin Vé -->
+        <!-- Tab 2: Sửa Vé -->
         <div id="tab2" class="card" style="display: none;">
             <h3>TÌM VÀ SỬA THÔNG TIN VÉ</h3>
             <div style="display: flex; gap: 15px; margin-top: 15px;">
                 <div class="form-group" style="flex: 1;">
                     <label>Nhập Mã Vé (5 Chữ Số)</label>
-                    <input type="text" id="searchCode" class="form-control" maxlength="5" placeholder="Ví dụ: 84920">
+                    <input type="text" id="searchCode" class="form-control" maxlength="5" placeholder="84920">
                 </div>
                 <div style="align-self: flex-end; margin-bottom: 15px;">
                     <button class="btn btn-primary" onclick="searchTicket()">Tìm Kiếm Vé</button>
@@ -247,18 +228,18 @@
                 
                 <div style="display: flex; gap: 10px; margin-top: 20px;">
                     <button class="btn btn-warning" onclick="openEditModal()">Chỉnh Sửa Thông Tin Vé</button>
-                    <button class="btn btn-purple" onclick="printEditAuditDirect(currentTicketData)">🖨️ In Lại Biên Bản Thay Đổi Thông Tin</button>
+                    <button class="btn btn-purple" onclick="printEditAuditDirect(currentTicketData)">🖨️ In Lại Biên Bản Thay Đổi</button>
                 </div>
             </div>
         </div>
 
         <!-- Tab 3: Kiểm Tra Vé -->
         <div id="tab3" class="card" style="display: none;">
-            <h3>KIỂM TRA THÔNG TIN VÉ & LỊCH SỬ</h3>
+            <h3>KIỂM TRA THÔNG TIN VÉ</h3>
             <div style="display: flex; gap: 15px; margin-top: 15px;">
                 <div class="form-group" style="flex: 1;">
                     <label>Nhập Mã Vé Cần Kiểm Tra (5 Chữ Số)</label>
-                    <input type="text" id="checkCodeInput" class="form-control" maxlength="5" placeholder="Ví dụ: 84920">
+                    <input type="text" id="checkCodeInput" class="form-control" maxlength="5" placeholder="84920">
                 </div>
                 <div style="align-self: flex-end; margin-bottom: 15px;">
                     <button class="btn btn-primary" onclick="checkTicketInfo()">Tra Cứu Vé</button>
@@ -271,30 +252,16 @@
                 <div class="info-row"><div class="info-label">Họ và Tên:</div><div class="info-value" id="infoName">-</div></div>
                 <div class="info-row"><div class="info-label">Số CCCD:</div><div class="info-value" id="infoCCCD">-</div></div>
                 <div class="info-row"><div class="info-label">Số Điện Thoại:</div><div class="info-value" id="infoPhone">-</div></div>
-
-                <div class="history-section">
-                    <div class="history-title">📝 LỊCH SỬ CHỈNH SỬA THÔNG TIN VÉ</div>
-                    <div id="editHistoryContainer">
-                        <div class="no-history">Chưa có lịch sử thay đổi thông tin.</div>
-                    </div>
-                </div>
-
-                <div class="history-section">
-                    <div class="history-title">🖨️ LỊCH SỬ IN LẠI VÉ & BIÊN BẢN</div>
-                    <div id="reprintHistoryContainer">
-                        <div class="no-history">Chưa có lịch sử in lại vé.</div>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- Tab 4: In Lại Vé & Biên Bản -->
+        <!-- Tab 4: In Lại Vé -->
         <div id="tab4" class="card" style="display: none;">
             <h3>IN LẠI VÉ & LẬP BIÊN BẢN XÁC THỰC</h3>
             <div style="display: flex; gap: 15px; margin-top: 15px;">
                 <div class="form-group" style="flex: 1;">
-                    <label>Nhập Mã Vé Cần In Lại (5 Chữ Số)</label>
-                    <input type="text" id="reprintCodeInput" class="form-control" maxlength="5" placeholder="Ví dụ: 84920">
+                    <label>Nhập Mã Vé Cần In Lại</label>
+                    <input type="text" id="reprintCodeInput" class="form-control" maxlength="5" placeholder="84920">
                 </div>
                 <div style="align-self: flex-end; margin-bottom: 15px;">
                     <button class="btn btn-warning" onclick="fetchReprintTicket()">Tìm Vé Để In Lại</button>
@@ -302,33 +269,28 @@
             </div>
 
             <div id="reprintActions" style="display: none; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;">
-                <p style="margin-bottom: 15px; font-weight: bold; color: #16a34a; font-size: 16px;">
+                <p style="margin-bottom: 15px; font-weight: bold; color: #16a34a;">
                     Đã tìm thấy vé: <span id="reprintTargetCode" style="color: #1877f2;"></span> - Chủ vé: <span id="reprintTargetName"></span>
                 </p>
 
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label>Lý do in lại vé (*):</label>
-                    <input type="text" id="reprintReason" class="form-control" placeholder="Ví dụ: Khách làm mất vé / Vé bị hỏng, rách...">
+                    <input type="text" id="reprintReason" class="form-control" placeholder="Ví dụ: Khách làm mất vé / Vé bị rách">
                 </div>
 
                 <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
                     <button class="btn btn-success" onclick="executeReprintTicketOnly()">1. In Lại Mẫu Vé</button>
-                    <button class="btn btn-primary" onclick="executeReprintAuditOnly()">2. Lập & In Biên Bản Xác Thực In Lại</button>
-                    <button class="btn btn-purple" onclick="executeReprintAuditDirect()">3. In Lại Biên Bản Xác Thực In Lại Vé</button>
-                    <button class="btn btn-warning" onclick="printEditAuditDirect(reprintTicketData)">4. In Lại Biên Bản Thay Đổi Thông Tin</button>
+                    <button class="btn btn-primary" onclick="executeReprintAuditOnly()">2. Lập & In Biên Bản Xác Thực</button>
+                    <button class="btn btn-purple" onclick="executeReprintAuditDirect()">3. In Lại Biên Bản Xác Thực</button>
+                    <button class="btn btn-warning" onclick="printEditAuditDirect(reprintTicketData)">4. In Lại Biên Bản Thay Đổi</button>
                 </div>
 
-                <h4 style="color: #475569; margin-bottom: 10px;">XEM TRƯỚC VÉ SẼ IN:</h4>
                 <div id="reprintTicketPrintArea" class="ticket-wrapper">
                     <div class="ticket-box">
                         <div class="reprint-stamp" id="ticketReprintStamp">IN LẠI</div>
-                        <div class="t-stub-left">
-                            <span class="reprint-ticket-code-display">00000</span> &nbsp; MỘT NGƯỜI
-                        </div>
+                        <div class="t-stub-left"><span class="reprint-ticket-code-display">00000</span> &nbsp; MỘT NGƯỜI</div>
                         <div class="t-main">
-                            <div class="t-main-top">
-                                MỘT ĐÊM<br>ĐÁNG NHỚ
-                            </div>
+                            <div class="t-main-top">MỘT ĐÊM<br>ĐÁNG NHỚ</div>
                             <div class="t-main-bottom">
                                 <div class="t-mb-left">Diện váy, khiêu vũ,<br>hẹn hò và choáng ngợp</div>
                                 <div class="t-mb-right">7 Tháng 3, 2020, 18:00<br>Khách sạn Á Đông</div>
@@ -339,9 +301,7 @@
                             <div class="t-r-mid">300.000Đ</div>
                             <div class="t-r-bot">PHIẾU VÀO CỔNG<br>VÀ ĂN UỐNG</div>
                         </div>
-                        <div class="t-stub-right">
-                            <span class="reprint-ticket-code-display">00000</span>
-                        </div>
+                        <div class="t-stub-right"><span class="reprint-ticket-code-display">00000</span></div>
                     </div>
                 </div>
             </div>
@@ -351,22 +311,13 @@
     <!-- Modal Form Sửa Vé -->
     <div id="editModal" class="modal-overlay">
         <div class="modal-card">
-            <h3 style="margin-bottom: 15px;">Cập Nhật Thông Tin Vé: <span id="modalTicketCode" style="color:#1877f2;"></span></h3>
-            <div class="form-group">
-                <label>Họ và Tên mới</label>
-                <input type="text" id="editName" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Số CCCD mới</label>
-                <input type="text" id="editCCCD" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Số Điện Thoại mới</label>
-                <input type="text" id="editPhone" class="form-control">
-            </div>
+            <h3 style="margin-bottom: 15px;">Cập Nhật Vé: <span id="modalTicketCode" style="color:#1877f2;"></span></h3>
+            <div class="form-group"><label>Họ và Tên mới</label><input type="text" id="editName" class="form-control"></div>
+            <div class="form-group"><label>Số CCCD mới</label><input type="text" id="editCCCD" class="form-control"></div>
+            <div class="form-group"><label>Số Điện Thoại mới</label><input type="text" id="editPhone" class="form-control"></div>
             <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
                 <button class="btn" onclick="closeModal()">Hủy</button>
-                <button class="btn btn-success" onclick="saveAndPrintAudit()">Lưu & In Thông Báo Thay Đổi</button>
+                <button class="btn btn-success" onclick="saveAndPrintAudit()">Lưu & In Báo Cáo</button>
             </div>
         </div>
     </div>
@@ -377,182 +328,113 @@
         <div class="audit-title">Biên Bản Thay Đổi Thông Tin Vé</div>
         <p style="text-align: center;">Mã vé: <b id="auditCode" style="font-size: 18px;"></b></p>
         <p style="margin-top: 15px;"><i>Thời gian thực hiện: <span id="auditTime"></span></i></p>
-        
         <table class="audit-table">
             <thead>
-                <tr>
-                    <th>Trường Thông Tin</th>
-                    <th>Thông Tin Cũ</th>
-                    <th>Thông Tin Mới Cập Nhật</th>
-                </tr>
+                <tr><th>Trường Thông Tin</th><th>Thông Tin Cũ</th><th>Thông Tin Mới</th></tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><b>Họ và Tên</b></td>
-                    <td id="auditOldName"></td>
-                    <td id="auditNewName"></td>
-                </tr>
-                <tr>
-                    <td><b>Số CCCD</b></td>
-                    <td id="auditOldCCCD"></td>
-                    <td id="auditNewCCCD"></td>
-                </tr>
-                <tr>
-                    <td><b>Số Điện Thoại</b></td>
-                    <td id="auditOldPhone"></td>
-                    <td id="auditNewPhone"></td>
-                </tr>
+                <tr><td><b>Họ và Tên</b></td><td id="auditOldName"></td><td id="auditNewName"></td></tr>
+                <tr><td><b>Số CCCD</b></td><td id="auditOldCCCD"></td><td id="auditNewCCCD"></td></tr>
+                <tr><td><b>Số Điện Thoại</b></td><td id="auditOldPhone"></td><td id="auditNewPhone"></td></tr>
             </tbody>
         </table>
-
         <div class="audit-sig">
-            <div>
-                <b>NGƯỜI YÊU CẦU SỬA</b><br>
-                <i>(Ký và ghi rõ họ tên)</i>
-                <br><br><br><br>
-            </div>
-            <div>
-                <b>NGƯỜI THỰC HIỆN SỬA</b><br>
-                <i>(Ký và ghi rõ họ tên)</i>
-                <br><br><br><br>
-                <b>Administrator</b>
-            </div>
+            <div><b>NGƯỜI YÊU CẦU SỬA</b><br><i>(Ký và ghi rõ họ tên)</i><br><br><br><br></div>
+            <div><b>NGƯỜI THỰC HIỆN SỬA</b><br><i>(Ký và ghi rõ họ tên)</i><br><br><br><br><b>Administrator</b></div>
         </div>
     </div>
 
-    <!-- Mẫu In Biên Bản Xác Thực In Lại Vé -->
+    <!-- Mẫu In Biên Bản In Lại Vé -->
     <div id="reprintAuditPrintArea" class="audit-print">
         <div class="reprint-stamp" id="reprintAuditReprintStamp">IN LẠI</div>
         <div class="audit-title">Biên Bản Xác Thực Yêu Cầu In Lại Vé</div>
         <p style="text-align: center;">Mã vé: <b id="reprintAuditCode" style="font-size: 20px;"></b></p>
         <p style="margin-top: 15px;"><i>Thời gian cấp lại: <span id="reprintAuditTime"></span></i></p>
-
         <table class="audit-table">
-            <tr>
-                <th colspan="2" style="text-align: center; background: #f0f0f0;">THÔNG TIN KHÁCH HÀNG SỞ HỮU VÉ</th>
-            </tr>
-            <tr>
-                <td style="width: 35%;"><b>Họ và Tên Chủ Vé</b></td>
-                <td id="reprintAuditName"></td>
-            </tr>
-            <tr>
-                <td><b>Số CCCD</b></td>
-                <td id="reprintAuditCCCD"></td>
-            </tr>
-            <tr>
-                <td><b>Số Điện Thoại</b></td>
-                <td id="reprintAuditPhone"></td>
-            </tr>
-            <tr>
-                <td><b>Lý do cấp/in lại</b></td>
-                <td id="reprintAuditReason">-</td>
-            </tr>
+            <tr><th colspan="2" style="text-align: center; background: #f0f0f0;">THÔNG TIN KHÁCH HÀNG</th></tr>
+            <tr><td style="width: 35%;"><b>Họ và Tên Chủ Vé</b></td><td id="reprintAuditName"></td></tr>
+            <tr><td><b>Số CCCD</b></td><td id="reprintAuditCCCD"></td></tr>
+            <tr><td><b>Số Điện Thoại</b></td><td id="reprintAuditPhone"></td></tr>
+            <tr><td><b>Lý do cấp/in lại</b></td><td id="reprintAuditReason">-</td></tr>
         </table>
-
         <div class="audit-sig">
-            <div>
-                <b>NGƯỜI YÊU CẦU IN LẠI</b><br>
-                <i>(Ký và ghi rõ họ tên)</i>
-                <br><br><br><br>
-            </div>
-            <div>
-                <b>NGƯỜI THỰC HIỆN IN LẠI</b><br>
-                <i>(Ký và ghi rõ họ tên)</i>
-                <br><br><br><br>
-                <b>Administrator</b>
-            </div>
+            <div><b>NGƯỜI YÊU CẦU IN LẠI</b><br><i>(Ký và ghi rõ họ tên)</i><br><br><br><br></div>
+            <div><b>NGƯỜI THỰC HIỆN IN LẠI</b><br><i>(Ký và ghi rõ họ tên)</i><br><br><br><br><b>Administrator</b></div>
         </div>
     </div>
 
     <script>
         // =========================================================================
-        // 1. CẤU HÌNH BẢO MẬT: KHAI BÁO IP PUBLIC & DẢI IP WIFI (LAN) NỘI BỘ
+        // KIỂM TRA KẾT NỐI MẠNG GATEWAY 192.168.0.1 (PHƯƠNG ÁN 1: BỎ WEBRTC / LOCAL IP)
         // =========================================================================
         
-        // A. Danh sách IP Public Internet cho phép
-        const ALLOWED_PUBLIC_IPS = [
-            "192.168.0.1",  // Địa chỉ Public IP của công ty
-        ];
-
-        // B. Danh sách dải IP LAN WiFi cho phép kết nối
-        const ALLOWED_WIFI_SUBNETS = [
-            "192.168.1.101",      // Dải IP của Router WiFi Văn Phòng
-            "192.168.0.102",         // Dải IP WiFi Xưởng Sản Xuất
-            "192.168.0.103",       // Dải IP WiFi Mạng Khách/Nội bộ
-            "192.168.0.104"        // Localhost
-        ];
-
-        window.addEventListener('DOMContentLoaded', validateNetworkConnection);
-
-        async function validateNetworkConnection() {
-            let localIP = "Chưa xác định";
-            let publicIP = "Chưa xác định";
-
-            try {
-                // 1. Lấy IP Public Internet
-                const pubRes = await fetch('https://api.ipify.org?format=json');
-                const pubData = await pubRes.json();
-                publicIP = pubData.ip;
-                document.getElementById('currentPublicIP').textContent = publicIP;
-            } catch (e) {
-                console.warn("Không thể xác thực Public IP:", e);
-            }
-
-            try {
-                // 2. Lấy IP LAN nội bộ từ Card WiFi (Sử dụng WebRTC)
-                localIP = await getLocalIPAddress();
-                document.getElementById('currentLocalIP').textContent = localIP;
-            } catch (e) {
-                console.warn("Không thể xác thực WiFi Local IP:", e);
-            }
-
-            // 3. Kiểm tra điều kiện truy cập
-            const isPublicIPValid = ALLOWED_PUBLIC_IPS.includes(publicIP) || ALLOWED_PUBLIC_IPS.includes("127.0.0.1");
-            const isWiFiValid = ALLOWED_WIFI_SUBNETS.some(subnet => localIP.startsWith(subnet));
-
-            // Nếu khớp cả 2 điều kiện (IP Public & WiFi LAN hợp lệ)
-            if (isPublicIPValid && isWiFiValid) {
-                document.getElementById('loginOverlay').style.display = 'flex';
-                document.getElementById('ipDeniedOverlay').style.display = 'none';
-            } else {
-                let reason = "Thiết bị của bạn chưa kết nối đúng WiFi hoặc IP mạng không nằm trong danh sách được phép.";
-                if (!isWiFiValid) reason = "Vui lòng bật và chuyển sang kết nối WiFi nội bộ hợp lệ của công ty!";
-                
-                document.getElementById('deniedReasonMessage').textContent = reason;
-                document.getElementById('ipDeniedOverlay').style.display = 'flex';
-                document.getElementById('loginOverlay').style.display = 'none';
-                document.getElementById('appMain').style.display = 'none';
-            }
-        }
-
-        // Hàm đọc IP LAN kết nối từ card mạng / WiFi thiết bị
-        function getLocalIPAddress() {
-            return new Promise((resolve) => {
-                const pc = new RTCPeerConnection({ iceServers: [] });
-                pc.createDataChannel('');
-                pc.createOffer().then(offer => pc.setLocalDescription(offer)).catch(() => resolve("127.0.0.1"));
-
-                pc.onicecandidate = (ice) => {
-                    if (!ice || !ice.candidate || !ice.candidate.candidate) return;
-                    const match = ice.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3})/);
-                    if (match) {
-                        resolve(match[1]);
-                        pc.onicecandidate = () => {};
-                    }
-                };
-
-                setTimeout(() => resolve("127.0.0.1"), 1200);
-            });
-        }
-
-        // =========================================================================
-        // 2. THAO TÁC XỬ LÝ QUẢN LÝ VÉ VÀ IN BÁO CÁO
-        // =========================================================================
+        const GATEWAY_IP = "http://192.168.0.1";
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby2ITuxL4l9E-hGGQF8A93RVKyS4TOoYN_rveoBFxAumF0JIQk7rKseyh_jFAMibjg/exec";
 
         let currentTicketData = null;
         let reprintTicketData = null;
 
+        window.addEventListener('DOMContentLoaded', validateNetworkConnection);
+
+        async function validateNetworkConnection() {
+            const statusTag = document.getElementById('gatewayStatusTag');
+            const deniedOverlay = document.getElementById('ipDeniedOverlay');
+            const loginOverlay = document.getElementById('loginOverlay');
+            const appMain = document.getElementById('appMain');
+
+            statusTag.textContent = "Đang kiểm tra Gateway...";
+
+            try {
+                // Ping thử trực tiếp tới Gateway 192.168.0.1 để xác nhận thiết bị thuộc dải mạng
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 2000);
+
+                await fetch(GATEWAY_IP, {
+                    method: 'HEAD',
+                    mode: 'no-cors',
+                    cache: 'no-store',
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                // Ping thành công -> Đã kết nối chung Gateway
+                statusTag.textContent = "Đã kết nối Gateway 192.168.0.1";
+                statusTag.style.color = "#38bdf8";
+                deniedOverlay.style.display = 'none';
+                loginOverlay.style.display = 'flex';
+
+            } catch (error) {
+                // Nếu fetch Gateway thất bại, thử kiểm tra kết nối qua Google Script / Local Server dự phòng
+                if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_EXEC_ID") {
+                    try {
+                        const res = await fetch(GOOGLE_SCRIPT_URL + "?action=ping", { cache: 'no-store' });
+                        if (res.ok) {
+                            statusTag.textContent = "Đã kết nối LAN (Mạng Nội Bộ)";
+                            statusTag.style.color = "#38bdf8";
+                            deniedOverlay.style.display = 'none';
+                            loginOverlay.style.display = 'flex';
+                            return;
+                        }
+                    } catch (e) {
+                        console.warn("Dự phòng Google Script thất bại.");
+                    }
+                }
+
+                // Nếu không gửi được packet nào tới Gateway -> Chặn truy cập
+                statusTag.textContent = "Chưa kết nối Gateway 192.168.0.1";
+                statusTag.style.color = "#ef4444";
+                document.getElementById('deniedReasonMessage').textContent = 
+                    "BẢO MẬT: Thiết bị của bạn chưa kết nối chung mạng Gateway 192.168.0.1!";
+                deniedOverlay.style.display = 'flex';
+                loginOverlay.style.display = 'none';
+                appMain.style.display = 'none';
+            }
+        }
+
+        // =========================================================================
+        // CÁC HÀM XỬ LÝ QUẢN LÝ VÉ
+        // =========================================================================
         function handleLogin() {
             const u = document.getElementById('loginUser').value;
             const p = document.getElementById('loginPass').value;
@@ -560,7 +442,7 @@
                 document.getElementById('loginOverlay').style.display = 'none';
                 document.getElementById('appMain').style.display = 'block';
             } else {
-                alert('Tài khoản hoặc mật khẩu không chính xác!');
+                alert('Tài khoản hoặc mật khẩu không đúng!');
             }
         }
 
@@ -591,9 +473,7 @@
             }
 
             const ticketCode = generate5DigitCode();
-
-            const codeDisplays = document.querySelectorAll('.ticket-code-display');
-            codeDisplays.forEach(el => el.textContent = ticketCode);
+            document.querySelectorAll('.ticket-code-display').forEach(el => el.textContent = ticketCode);
 
             if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_EXEC_ID") {
                 try {
@@ -603,9 +483,7 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ action: 'create', code: ticketCode, name, cccd, phone })
                     });
-                } catch (e) {
-                    console.error('Lỗi gửi dữ liệu Google Sheets:', e);
-                }
+                } catch (e) { console.error('Lỗi Google Sheets:', e); }
             }
 
             const printContent = document.getElementById('ticketPrintArea');
@@ -616,9 +494,8 @@
 
         async function searchTicket() {
             const code = document.getElementById('searchCode').value.trim();
-
             if (!code || code.length !== 5) {
-                alert('Vui lòng nhập đúng mã vé gồm 5 chữ số!');
+                alert('Vui lòng nhập mã vé gồm 5 chữ số!');
                 return;
             }
 
@@ -631,7 +508,6 @@
 
                 if (data.status === 'success') {
                     currentTicketData = data.ticket;
-                    
                     document.getElementById('tab2Code').textContent = data.ticket.code;
                     document.getElementById('tab2Name').textContent = data.ticket.name;
                     document.getElementById('tab2CCCD').textContent = data.ticket.cccd;
@@ -639,11 +515,9 @@
                     document.getElementById('tab2SearchResult').style.display = 'block';
                 } else {
                     document.getElementById('tab2SearchResult').style.display = 'none';
-                    alert('Không tìm thấy mã vé này trên hệ thống!');
+                    alert('Không tìm thấy mã vé!');
                 }
-            } catch (e) {
-                alert('Không thể kết nối đến Google Sheet!');
-            }
+            } catch (e) { alert('Lỗi kết nối máy chủ!'); }
         }
 
         function openEditModal() {
@@ -665,18 +539,16 @@
             const newPhone = document.getElementById('editPhone').value.trim();
 
             if (!newName || !newCCCD || !newPhone) {
-                alert('Vui lòng điền đầy đủ thông tin sửa đổi!');
+                alert('Vui lòng nhập đủ thông tin!');
                 return;
             }
 
             document.getElementById('editAuditReprintStamp').style.display = 'none';
-
             document.getElementById('auditCode').textContent = currentTicketData.code;
             document.getElementById('auditTime').textContent = new Date().toLocaleString('vi-VN');
             document.getElementById('auditOldName').textContent = currentTicketData.name;
             document.getElementById('auditOldCCCD').textContent = currentTicketData.cccd;
             document.getElementById('auditOldPhone').textContent = currentTicketData.phone;
-
             document.getElementById('auditNewName').textContent = newName;
             document.getElementById('auditNewCCCD').textContent = newCCCD;
             document.getElementById('auditNewPhone').textContent = newPhone;
@@ -687,21 +559,12 @@
                         method: 'POST',
                         mode: 'no-cors',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            action: 'update',
-                            code: currentTicketData.code,
-                            name: newName,
-                            cccd: newCCCD,
-                            phone: newPhone
-                        })
+                        body: JSON.stringify({ action: 'update', code: currentTicketData.code, name: newName, cccd: newCCCD, phone: newPhone })
                     });
-                } catch (e) {
-                    console.error('Lỗi khi cập nhật Google Sheets:', e);
-                }
+                } catch (e) { console.error('Lỗi cập nhật:', e); }
             }
 
             closeModal();
-
             const printArea = document.getElementById('auditPrintArea');
             printArea.style.display = 'block';
             printArea.classList.add('printable');
@@ -711,21 +574,15 @@
         }
 
         function printEditAuditDirect(ticket) {
-            if (!ticket) {
-                alert('Vui lòng tìm kiếm vé trước!');
-                return;
-            }
-
+            if (!ticket) { alert('Chưa chọn vé!'); return; }
             document.getElementById('editAuditReprintStamp').style.display = 'block';
-
             document.getElementById('auditCode').textContent = ticket.code;
             document.getElementById('auditTime').textContent = new Date().toLocaleString('vi-VN');
-            
-            document.getElementById('auditOldName').textContent = ticket.name + " (Ghi nhận hệ thống)";
+            document.getElementById('auditOldName').textContent = ticket.name + " (Ghi nhận)";
             document.getElementById('auditNewName').textContent = ticket.name;
-            document.getElementById('auditOldCCCD').textContent = ticket.cccd + " (Ghi nhận hệ thống)";
+            document.getElementById('auditOldCCCD').textContent = ticket.cccd + " (Ghi nhận)";
             document.getElementById('auditNewCCCD').textContent = ticket.cccd;
-            document.getElementById('auditOldPhone').textContent = ticket.phone + " (Ghi nhận hệ thống)";
+            document.getElementById('auditOldPhone').textContent = ticket.phone + " (Ghi nhận)";
             document.getElementById('auditNewPhone').textContent = ticket.phone;
 
             const printArea = document.getElementById('auditPrintArea');
@@ -740,10 +597,7 @@
             const code = document.getElementById('checkCodeInput').value.trim();
             const infoBox = document.getElementById('ticketInfoBox');
 
-            if (!code || code.length !== 5) {
-                alert('Vui lòng nhập đúng mã vé gồm 5 chữ số!');
-                return;
-            }
+            if (!code || code.length !== 5) { alert('Mã vé gồm 5 chữ số!'); return; }
 
             try {
                 const res = await fetch(GOOGLE_SCRIPT_URL, {
@@ -757,121 +611,17 @@
                     document.getElementById('infoName').textContent = data.ticket.name;
                     document.getElementById('infoCCCD').textContent = data.ticket.cccd;
                     document.getElementById('infoPhone').textContent = data.ticket.phone;
-                    
-                    renderEditHistory(data.ticket.editHistory || []);
-                    renderReprintHistory(data.ticket, data.ticket.reprintHistory || []);
-
                     infoBox.style.display = 'block';
                 } else {
                     infoBox.style.display = 'none';
-                    alert('Mã vé không tồn tại trên hệ thống!');
+                    alert('Vé không tồn tại!');
                 }
-            } catch (e) {
-                alert('Lỗi truy vấn dữ liệu vé!');
-            }
-        }
-
-        function renderEditHistory(historyList) {
-            const container = document.getElementById('editHistoryContainer');
-            if (!historyList || historyList.length === 0) {
-                container.innerHTML = '<div class="no-history">Chưa có lịch sử thay đổi thông tin.</div>';
-                return;
-            }
-
-            let html = `
-                <table class="history-table">
-                    <thead>
-                        <tr>
-                            <th>Thời Gian</th>
-                            <th>Thông Tin Cũ</th>
-                            <th>Thông Tin Mới</th>
-                            <th>Người Sửa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            historyList.forEach(item => {
-                html += `
-                    <tr>
-                        <td>${item.time}</td>
-                        <td>${item.oldData}</td>
-                        <td><b>${item.newData}</b></td>
-                        <td>${item.user || 'Administrator'}</td>
-                    </tr>
-                `;
-            });
-
-            html += '</tbody></table>';
-            container.innerHTML = html;
-        }
-
-        function renderReprintHistory(ticket, reprintList) {
-            const container = document.getElementById('reprintHistoryContainer');
-            if (!reprintList || reprintList.length === 0) {
-                container.innerHTML = '<div class="no-history">Chưa có lịch sử in lại vé.</div>';
-                return;
-            }
-
-            let html = `
-                <table class="history-table">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Thời Gian In Lại</th>
-                            <th>Lý Do In Lại</th>
-                            <th>Người Thực Hiện</th>
-                            <th>Thao Tác</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            reprintList.forEach((item, index) => {
-                html += `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td>${item.time}</td>
-                        <td><span style="color: #d97706; font-weight: bold;">${item.reason}</span></td>
-                        <td>${item.user || 'Administrator'}</td>
-                        <td>
-                            <button class="btn btn-purple btn-sm" onclick="printAuditFromHistory('${ticket.code}', '${ticket.name}', '${ticket.cccd}', '${ticket.phone}', '${item.reason}', '${item.time}')">
-                                🖨️ In lại biên bản
-                            </button>
-                        </td>
-                    </tr>
-                `;
-            });
-
-            html += '</tbody></table>';
-            container.innerHTML = html;
-        }
-
-        function printAuditFromHistory(code, name, cccd, phone, reason, time) {
-            document.getElementById('reprintAuditReprintStamp').style.display = 'block';
-
-            document.getElementById('reprintAuditCode').textContent = code;
-            document.getElementById('reprintAuditTime').textContent = time + " (In lại)";
-            document.getElementById('reprintAuditName').textContent = name;
-            document.getElementById('reprintAuditCCCD').textContent = cccd;
-            document.getElementById('reprintAuditPhone').textContent = phone;
-            document.getElementById('reprintAuditReason').textContent = reason;
-
-            const printArea = document.getElementById('reprintAuditPrintArea');
-            printArea.style.display = 'block';
-            printArea.classList.add('printable');
-            window.print();
-            printArea.classList.remove('printable');
-            printArea.style.display = 'none';
+            } catch (e) { alert('Lỗi truy vấn!'); }
         }
 
         async function fetchReprintTicket() {
             const code = document.getElementById('reprintCodeInput').value.trim();
-
-            if (!code || code.length !== 5) {
-                alert('Vui lòng nhập mã vé gồm 5 chữ số!');
-                return;
-            }
+            if (!code || code.length !== 5) { alert('Vui lòng nhập 5 số mã vé!'); return; }
 
             try {
                 const res = await fetch(GOOGLE_SCRIPT_URL, {
@@ -884,46 +634,18 @@
                     reprintTicketData = data.ticket;
                     document.getElementById('reprintTargetCode').textContent = data.ticket.code;
                     document.getElementById('reprintTargetName').textContent = data.ticket.name;
-
-                    const reprintCodeDisplays = document.querySelectorAll('.reprint-ticket-code-display');
-                    reprintCodeDisplays.forEach(el => el.textContent = data.ticket.code);
-
+                    document.querySelectorAll('.reprint-ticket-code-display').forEach(el => el.textContent = data.ticket.code);
                     document.getElementById('reprintActions').style.display = 'block';
                 } else {
                     document.getElementById('reprintActions').style.display = 'none';
                     alert('Mã vé không tồn tại!');
                 }
-            } catch (e) {
-                alert('Lỗi khi tra cứu vé!');
-            }
-        }
-
-        async function logReprintAction(reason) {
-            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== "YOUR_EXEC_ID") {
-                try {
-                    await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            action: 'log_reprint',
-                            code: reprintTicketData.code,
-                            reason: reason
-                        })
-                    });
-                } catch (e) {
-                    console.error('Lỗi khi lưu lịch sử in lại:', e);
-                }
-            }
+            } catch (e) { alert('Lỗi mạng!'); }
         }
 
         async function executeReprintTicketOnly() {
             if (!reprintTicketData) return;
-            const reason = document.getElementById('reprintReason').value.trim() || 'In lại mẫu vé';
-            await logReprintAction(reason);
-
             document.getElementById('ticketReprintStamp').style.display = 'block';
-
             const printContent = document.getElementById('reprintTicketPrintArea');
             printContent.classList.add('printable');
             window.print();
@@ -932,18 +654,10 @@
 
         async function executeReprintAuditOnly() {
             if (!reprintTicketData) return;
-
             const reason = document.getElementById('reprintReason').value.trim();
-            if (!reason) {
-                alert('Vui lòng nhập lý do in lại vé!');
-                document.getElementById('reprintReason').focus();
-                return;
-            }
-
-            await logReprintAction(reason);
+            if (!reason) { alert('Vui lòng điền lý do in lại!'); return; }
 
             document.getElementById('reprintAuditReprintStamp').style.display = 'block';
-
             document.getElementById('reprintAuditCode').textContent = reprintTicketData.code;
             document.getElementById('reprintAuditTime').textContent = new Date().toLocaleString('vi-VN');
             document.getElementById('reprintAuditName').textContent = reprintTicketData.name;
@@ -960,15 +674,9 @@
         }
 
         function executeReprintAuditDirect() {
-            if (!reprintTicketData) {
-                alert('Vui lòng tìm kiếm vé trước!');
-                return;
-            }
-
-            const reason = document.getElementById('reprintReason').value.trim() || 'In lại biên bản xác thực';
-
+            if (!reprintTicketData) return;
+            const reason = document.getElementById('reprintReason').value.trim() || 'In lại biên bản';
             document.getElementById('reprintAuditReprintStamp').style.display = 'block';
-
             document.getElementById('reprintAuditCode').textContent = reprintTicketData.code;
             document.getElementById('reprintAuditTime').textContent = new Date().toLocaleString('vi-VN') + " (In lại)";
             document.getElementById('reprintAuditName').textContent = reprintTicketData.name;
